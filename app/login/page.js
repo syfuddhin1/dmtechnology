@@ -1,13 +1,8 @@
-import { signIn } from "@/auth";
+import { loginUser } from "@/lib";
 
 export default function SignIn() {
   return (
-    <form
-      action={async (formData) => {
-        "use server";
-        await signIn("credentials", formData);
-      }}
-    >
+    <form action={loginUser} className="flex flex-col gap-4">
       <label>
         Email
         <input name="email" type="email" />

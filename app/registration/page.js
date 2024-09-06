@@ -3,15 +3,7 @@ import React from "react";
 
 export default function RegistrationPage() {
   return (
-    <form
-      className="flex flex-col gap-4"
-      action={async (formData) => {
-        "use server";
-        console.log("formData", formData);
-        // TODO: implement registration logic
-        await addUser(formData);
-      }}
-    >
+    <form className="flex flex-col gap-4" action={addUser}>
       <label>
         Email
         <input name="email" type="email" />
