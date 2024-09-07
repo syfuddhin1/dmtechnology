@@ -1,13 +1,10 @@
-"use client";
-import React, { useRef } from "react";
-import { useReactToPrint } from "react-to-print";
-import PmkLogo from "../../_component/PmkLogo";
-import { numberToWords } from "@/utils/numToWord";
+import PrintWrapper from "@/app/_component/PrintWrapper";
 import { getAccountsName } from "@/services/data";
 import { formatDate } from "@/utils/formatDate";
-import PrintButton from "./PrintButton";
+import { numberToWords } from "@/utils/numToWord";
+import CompanyHeader from "../../_component/CompanyHeader";
+import FootSignatureTable from "../../_component/FootSignatureTable";
 export default function DataTable({ vouchers = [], branch, date }) {
-  const printRef = useRef();
   const openingBalance = 0;
   const calculateBalance = () => {
     let balance = openingBalance;
@@ -32,39 +29,18 @@ export default function DataTable({ vouchers = [], branch, date }) {
   const { updatedTransactions, totalReceipt, totalPayment, balance } =
     calculateBalance();
 
-  const print = useReactToPrint({
-    content: () => printRef.current,
-  });
-
   return (
-    <>
-      <PrintButton print={print} />
-      <div className={"p-4"} ref={printRef}>
-        <div align="center" className={"w-full"}>
-          <div class="report_header_logo">
-            <PmkLogo />
-            <div class="report_header_content">
-              <h2 className={"text-2xl font-black"}>
-                <>Palli Mongal Karmosuchi (PMK)</>
-              </h2>
-              <h4>
-                <>Zirabo, Ashulia, Dhaka ,Bangladesh</>
-              </h4>
-              <h2 className={"text-xl font-black tracking-widest"}>
-                <>DM Technology</>
-              </h2>
-              <h4
-                className={
-                  "text-lg font-black underline underline-offset-8 mt-2"
-                }
-              >
-                {" "}
-                Cash & Bank Book Report
-              </h4>
-            </div>
-          </div>
-        </div>
-        <table className={"w-full"}>
+    <PrintWrapper>
+      <div>
+        <CompanyHeader />
+        <h4
+          className={
+            "flex justify-center text-lg font-black underline underline-offset-8 mt-2"
+          }
+        >
+          Cash & Bank Book Report
+        </h4>
+        <table className={"w-full capitalize"}>
           <tr className="rth">
             <td nowrap="nowrap" align="left" className="text-left">
               <strong>Reporting Date : </strong>
@@ -151,53 +127,8 @@ export default function DataTable({ vouchers = [], branch, date }) {
           </tbody>
         </table>
         <br />
-        <br />
-        <br />
-        <div class="report-footer" align="center" border="0">
-          <table
-            id="report_footer_table"
-            width="100%"
-            border="0"
-            cellspacing="0"
-          >
-            <tbody>
-              <tr>
-                <td nowrap="nowrap" class="text-left">
-                  <strong>Signature :</strong>
-                </td>
-                <td nowrap="nowrap" class="text-left">
-                  <strong>Signature :</strong>
-                </td>
-                <td nowrap="nowrap" class="text-left">
-                  <strong>Signature :</strong>
-                </td>
-              </tr>
-              <tr>
-                <td nowrap="nowrap" class="text-left">
-                  <strong>Prepared By :</strong>
-                </td>
-                <td nowrap="nowrap" class="text-left">
-                  <strong>Verified By :</strong>
-                </td>
-                <td nowrap="nowrap" class="text-left">
-                  <strong>Approved By :</strong>
-                </td>
-              </tr>
-              <tr>
-                <td nowrap="nowrap" class="text-left">
-                  <strong>Designation :</strong>
-                </td>
-                <td nowrap="nowrap" class="text-left">
-                  <strong>Designation :</strong>
-                </td>
-                <td nowrap="nowrap" class="text-left">
-                  <strong>Designation :</strong>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <FootSignatureTable />
       </div>
-    </>
+    </PrintWrapper>
   );
 }

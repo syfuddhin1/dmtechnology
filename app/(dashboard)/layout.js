@@ -1,5 +1,5 @@
 import localFont from "next/font/local";
-import NavBar from "../_componrnt/nav/NavBar";
+import NavBar from "../_component/nav/NavBar";
 import "../globals.css";
 import NavBarLeft from "./_component/NavBarLeft";
 import { auth } from "@/auth";

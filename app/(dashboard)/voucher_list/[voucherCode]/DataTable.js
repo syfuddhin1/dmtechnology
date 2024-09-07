@@ -1,14 +1,10 @@
-"use client";
-import React, { useRef } from "react";
-import PmkLogo from "@/app/(dashboard)/_component/PmkLogo";
 import FootSignatureTable from "@/app/(dashboard)/_component/FootSignatureTable";
-import { numberToWords } from "@/utils/numToWord";
-import { formatDate } from "@/utils/formatDate";
-import PrintButton from "../../cashbook/_component/PrintButton";
-import { useReactToPrint } from "react-to-print";
 import { getAccountsName } from "@/services/data";
+import { formatDate } from "@/utils/formatDate";
+import { numberToWords } from "@/utils/numToWord";
+import CompanyHeader from "../../_component/CompanyHeader";
+import PrintWrapper from "@/app/_component/PrintWrapper";
 export default function DataTable({ data, type, voucherCode }) {
-  const printRef = useRef(null);
   const formatLedgerEntries = () => {
     const ledgerEntries = [];
     let totalDebit = 0;
@@ -43,13 +39,9 @@ export default function DataTable({ data, type, voucherCode }) {
 
   const { ledgerEntries, totalDebit, totalCredit } = formatLedgerEntries();
 
-  const print = useReactToPrint({
-    content: () => printRef.current,
-  });
   return (
-    <>
-      <PrintButton print={print} />
-      <div ref={printRef} className={"p-4"}>
+    <PrintWrapper>
+      <div>
         <div data-v-88d4c87c="" className="card-body">
           <div
             data-v-88d4c87c=""
@@ -58,20 +50,7 @@ export default function DataTable({ data, type, voucherCode }) {
           >
             <div className="scroll-report voucher_print" id="report-container">
               <div className="report-header fontSize_11" align="center">
-                <div className="report_header_logo">
-                  <PmkLogo />
-                  <div class="report_header_content">
-                    <h2 className={"text-2xl font-black"}>
-                      <>Palli Mongal Karmosuchi (PMK)</>
-                    </h2>
-                    <h4>
-                      <>Zirabo, Ashulia, Dhaka ,Bangladesh</>
-                    </h4>
-                    <h2 className={"text-xl font-black mt-1 tracking-widest"}>
-                      <>DM Technology</>
-                    </h2>
-                  </div>
-                </div>
+                <CompanyHeader />
 
                 <table width="100%" align="center">
                   <tr>
@@ -205,6 +184,6 @@ export default function DataTable({ data, type, voucherCode }) {
           </div>
         </div>
       </div>
-    </>
+    </PrintWrapper>
   );
 }

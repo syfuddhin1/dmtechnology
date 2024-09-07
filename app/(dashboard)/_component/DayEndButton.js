@@ -8,9 +8,7 @@ export default function DayEndButton({ data }) {
     e.preventDefault();
     const confirmed = confirm("Are you sure?");
     if (!confirmed) return; // Only proceed if the user confirms
-    console.log(data);
     const response = await addBranchInfoByDate(data);
-    console.log(response);
   };
   return (
     <button
