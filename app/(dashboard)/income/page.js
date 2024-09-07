@@ -1,8 +1,11 @@
-import { auth } from "@/auth";
-import React from "react";
+import DateSelectForm from "../_component/DateSelectForm";
+import DataTable from "./DataTable";
 
-export default async function IncomeStateMentPage() {
-  const session = await auth();
-  console.log("session", session);
-  return <div>IncomeStateMentPage</div>;
+export default async function IncomeStatementPage({ params, searchParams }) {
+  return (
+    <>
+      <DateSelectForm />
+      {searchParams?.date && <DataTable {...searchParams} />}
+    </>
+  );
 }

@@ -1,8 +1,12 @@
-import { auth } from "@/auth";
-import React from "react";
+import { getBalanceSheetData } from "@/lib/crud";
+import DateSelectForm from "../_component/DateSelectForm";
+import DataTable from "./DataTable";
 
-export default async function BalanceSheetPage() {
-  const session = await auth();
-  console.log("session", session);
-  return <div>BalanceSheetPage</div>;
+export default async function BalanceSheetPage({ params, searchParams }) {
+  return (
+    <>
+      <DateSelectForm />
+      {searchParams?.date && <DataTable {...searchParams} />}
+    </>
+  );
 }

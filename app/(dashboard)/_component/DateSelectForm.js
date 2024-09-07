@@ -4,7 +4,9 @@ import React, { useState } from "react";
 
 export default function DateSelectForm() {
   const searchParams = useSearchParams();
-  const [date, setDate] = useState(searchParams.get("date"));
+  const [date, setDate] = useState(
+    searchParams.get("date") || new Date().toISOString().slice(0, 10)
+  );
   const router = useRouter();
 
   const onSubmit = (e) => {
