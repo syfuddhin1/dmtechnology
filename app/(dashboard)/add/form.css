@@ -1,0 +1,118 @@
+.addform {
+  width: 50rem;
+}
+.addform label {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+}
+.addform label input,
+.addform label select {
+  height: 2.5rem;
+  width: 100%;
+  color: black;
+  padding-left: 0.5rem;
+  font-family: inherit;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  outline: none;
+}
+.none {
+  display: none !important;
+}
+.add {
+  background: #2d8857;
+  width: 10rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.addform input:disabled,
+.addform select:disabled {
+  background: rgba(0, 0, 0, 0.199);
+}
+
+table {
+  margin-top: 1rem;
+  width: 100%;
+}
+tr th {
+  padding-inline: 1.5rem;
+  border: 1px solid black;
+}
+
+tr td {
+  text-align: center;
+  padding-inline: 1.5rem;
+}
+
+#report_footer_table tr td {
+  border: none;
+  padding: 0.3rem;
+}
+
+/*th {*/
+/*    color:  #292929;*/
+/*    font-family: TrebuchetMS,Verdana,Arial,Helvetica,sans-serif;*/
+/*    font-size: 11px;*/
+/*    font-weight: bold;*/
+/*    text-transform: uppercase;*/
+/*}*/
+/*td {*/
+/*    font - size: 12px;*/
+/*}*/
+/*.report_header {*/
+/*    margin: 0 auto;*/
+/*    width: 900px;*/
+/*    border: 0;*/
+/*}*/
+/*.report_class {*/
+/*    margin: 0 auto;*/
+/*    width: 900px;*/
+/*    border: 1px solid;*/
+/*}*/
+/*.report_class tr {*/
+/*    background: none repeat scroll 0 0 #FFFFFF;*/
+/*}*/
+/*.report_class th {*/
+/*    border - style: solid;*/
+/*    color:  #292929;*/
+/*    font-family: TrebuchetMS,Verdana,Arial,Helvetica,sans-serif;*/
+/*    font-size: 11px;*/
+/*    font-weight: bold;*/
+/*    text-transform: uppercase;*/
+/*}*/
+/*.fontStyle {*/
+/*    color:  #292929;*/
+/*    font-family: TrebuchetMS,Verdana,Arial,Helvetica,sans-serif;*/
+/*    font-size: 12px;*/
+/*    font-weight: bold;*/
+/*    text-transform: uppercase;*/
+/*}*/
+/*.report_class td {*/
+/*    font - family: TrebuchetMS,Verdana,Arial,Helvetica,sans-serif;*/
+/*    font-size: 12px;*/
+/*    border-bottom: 1px solid;*/
+/*    padding: 7px 3px;*/
+/*}*/
+/*.fontSize_10 td,h3{*/
+/*    font - size:10px;*/
+/*}*/
+/*.fontSize_11 td,h3{*/
+/*    font - size:11px;*/
+/*}*/
+/*.fontSize_12 td,h3{*/
+/*    font - size:12px;*/
+/*}*/
+/*.fontSize_13 td,h3{*/
+/*    font - size:13px;*/
+/*}*/
+/*.fontSize_14 td,h3{*/
+/*    font - size:14px;*/
+/*}*/
+/*.fontSize_15 td,h3{*/
+/*    font - size:15px;*/
+/*}*/
