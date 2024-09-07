@@ -5,7 +5,7 @@ export default function PrintButton({ print }) {
   return (
     <button
       className={
-        "shadowBtn btn w-40 absolute top-[14.5rem] xl:top-24 xl:right-10 flex items-center gap-4 justify-center right-1"
+        "shadowBtn btn absolute top-[15.5rem] xl:top-24 xl:right-10 flex items-center gap-4 justify-center right-1"
       }
       onClick={print}
     >

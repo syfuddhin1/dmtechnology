@@ -17,8 +17,8 @@ export default function DateSelectForm() {
   };
 
   return (
-    <form className={"flex items-center gap-2 p-3"} onSubmit={onSubmit}>
-      <label className="w-full">Select Date</label>
+    <form className={"flex items-center gap-4 p-3"} onSubmit={onSubmit}>
+      <label className="min-w-fit">Select Date</label>
       <input
         type="date"
         name={"date"}
@@ -28,9 +28,9 @@ export default function DateSelectForm() {
       />
       <button
         type="submit"
-        className="bg-blue-500 text-white px-4 py-2 rounded"
+        className="bg-blue-500 min-w-fit text-white px-4 py-2 rounded"
       >
-        Submit
+        Show Report
       </button>
     </form>
   );

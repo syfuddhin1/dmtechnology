@@ -4,30 +4,11 @@ import { formatDate } from "@/utils/formatDate";
 import { numberToWords } from "@/utils/numToWord";
 import CompanyHeader from "../../_component/CompanyHeader";
 import FootSignatureTable from "../../_component/FootSignatureTable";
+import { calculateBalance } from "@/utils/calculateBalance";
 export default function DataTable({ vouchers = [], branch, date }) {
   const openingBalance = 0;
-  const calculateBalance = () => {
-    let balance = openingBalance;
-    let totalReceipt = 0;
-    let totalPayment = 0;
-
-    const updatedTransactions = vouchers.map((transaction) => {
-      const amount = parseFloat(transaction.amount);
-      if (transaction.voucherType === "receipt") {
-        balance += amount;
-        totalReceipt += amount;
-      } else if (transaction.voucherType === "payment") {
-        balance -= amount;
-        totalPayment += amount;
-      }
-      return { ...transaction, balance: balance };
-    });
-
-    return { updatedTransactions, totalReceipt, totalPayment, balance };
-  };
-
   const { updatedTransactions, totalReceipt, totalPayment, balance } =
-    calculateBalance();
+    calculateBalance(openingBalance, vouchers);
 
   return (
     <PrintWrapper>

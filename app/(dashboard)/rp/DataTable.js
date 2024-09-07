@@ -2,12 +2,13 @@ import { Accounts } from "@/services/data";
 import CompanyHeader from "../_component/CompanyHeader";
 import FootSignatureTable from "../_component/FootSignatureTable";
 import PrintWrapper from "@/app/_component/PrintWrapper";
-export default function DataTable() {
-  const totalCurrentMonthReceipt = 0;
-  const totalCurrentMonthPayment = 0;
-  const totalCurrentYearReceipt = 0;
-  const totalCurrentYearPayment = 0;
-
+import { getRPReportData } from "@/lib/crud";
+import { formatDate } from "@/utils/formatDate";
+import { getDateName } from "@/utils/getDateName";
+import { auth } from "@/auth";
+export default async function DataTable({ date }) {
+  const name = (await auth())?.user?.name;
+  const data = await getRPReportData(date);
   return (
     <PrintWrapper>
       <div className="">
@@ -18,20 +19,26 @@ export default function DataTable() {
               <h2 className="text-xl font-bold">
                 <u>Receipt Payment</u>
               </h2>
-              <strong>For the period ended September, 2024</strong>
+              <strong>
+                For the period ended <span>{getDateName(date).monthName}</span>,{" "}
+                <span>{new Date(date).getFullYear()}</span>
+              </strong>
             </td>
           </tr>
           <tr class="rth">
             <td colspan="2" nowrap="nowrap" align="left" class="rtd">
-              <strong>Reporting Date : </strong>07-09-2024
+              <strong>Reporting Date : </strong>
+              {date}
             </td>
             <td colspan="2" nowrap="nowrap" align="right" class="rtd">
-              <strong>Print Date : </strong>07-09-2024
+              <strong>Print Date : </strong>
+              {formatDate(new Date())}
             </td>
           </tr>
-          <tr class="rth">
+          <tr class="capitalize">
             <td colspan="2" nowrap="nowrap" align="left" class="rtd">
-              <strong>Branch Name : </strong>Noyabazar-1
+              <strong>Branch Name : </strong>
+              {name}
             </td>
           </tr>
         </table>
@@ -52,13 +59,13 @@ export default function DataTable() {
               </th>
               <th class="acc_th" width="15%">
                 Current Month
-                <br />
-                (September, 24)
+                <br />( <span>{getDateName(date).monthName}</span>,{" "}
+                <span>{new Date(date).getFullYear()}</span>)
               </th>
               <th class="acc_th" width="15%">
                 Current Year
                 <br />
-                (FY-2024-2025)
+                (FY-{data.date.fiscalYear})
               </th>
             </tr>
           </thead>
@@ -71,19 +78,20 @@ export default function DataTable() {
             {Accounts.map(
               (account) =>
                 account.code !== 106 &&
-                account.code !== 107 && (
-                  <tr class="child-row19005_1" key={account.id}>
-                    <td align="left" class=" depth3">
+                account.code !== 107 &&
+                account.code !== 108 && (
+                  <tr class="child-row19005_1" key={account.code}>
+                    <td align="left" className="text-left pl-10">
                       {account.name}
                     </td>
                     <td align="center" class="">
                       -{" "}
                     </td>
                     <td align="right" class="">
-                      {account.current_month}
+                      {data.receipt.month[account.code]}
                     </td>
                     <td align="right" class="">
-                      {account.current_year}
+                      {data.receipt.year[account.code]}
                     </td>
                   </tr>
                 )
@@ -91,8 +99,8 @@ export default function DataTable() {
             <tr className="font-bold">
               <td>Total Receipt</td>
               <td>-</td>
-              <td>{totalCurrentMonthReceipt}</td>
-              <td>{totalCurrentYearReceipt}</td>
+              <td>{data.receipt.totalCreditForMonth}</td>
+              <td>{data.receipt.totalCreditForYear}</td>
             </tr>
             <tr>
               <th align="left" class="th_title" colspan="4" bgcolor="#BFC4C9">
@@ -102,19 +110,20 @@ export default function DataTable() {
             {Accounts.map(
               (account) =>
                 account.code !== 104 &&
-                account.code !== 105 && (
-                  <tr class="child-row19005_1" key={account.id}>
-                    <td align="left" class=" depth3">
+                account.code !== 105 &&
+                account.code !== 108 && (
+                  <tr class="child-row19005_1" key={account.code}>
+                    <td align="left" className="text-left pl-10">
                       {account.name}
                     </td>
                     <td align="center" class="">
                       -{" "}
                     </td>
                     <td align="right" class="">
-                      {account.current_month}
+                      {data.payment.month[account.code]}
                     </td>
                     <td align="right" class="">
-                      {account.current_year}
+                      {data.payment.year[account.code]}
                     </td>
                   </tr>
                 )
@@ -122,8 +131,8 @@ export default function DataTable() {
             <tr className="font-bold">
               <td>Total Payment</td>
               <td>-</td>
-              <td>{totalCurrentMonthPayment}</td>
-              <td>{totalCurrentYearPayment}</td>
+              <td>{data.payment.totalDebitForMonth}</td>
+              <td>{data.payment.totalDebitForYear}</td>
             </tr>
           </tbody>
         </table>
