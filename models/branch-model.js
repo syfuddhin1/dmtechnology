@@ -10,6 +10,27 @@ const branchSchema = new Schema(
       required: true,
       type: String,
     },
+
+    date: {
+      type: Date,
+      default: Date.now,
+      required: true,
+    },
+
+    balance: {
+      type: Number,
+      default: 0,
+    },
+
+    totalReceipt: {
+      type: Number,
+      default: 0,
+    },
+
+    totalPayment: {
+      type: Number,
+      default: 0,
+    },
   },
   { timestamps: true }
 );

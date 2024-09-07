@@ -1,7 +1,12 @@
 import { AiFillDelete } from "react-icons/ai";
 import React from "react";
+import { getBranchData } from "@/lib/crud";
+import { formatDate } from "@/utils/formatDate";
+import DayDeleteButton from "./DayDeleteButton";
 
-export default function DayList() {
+export default async function DayList() {
+  const data = (await getBranchData()).data;
+
   return (
     <div className="card-body">
       <div>
@@ -20,27 +25,24 @@ export default function DayList() {
               </tr>
             </thead>
 
-            <tbody className="">
-              <tr className="">
-                <td className="text-center">1</td>
-                <td className="text-center">2024-09-04</td>
-                <td className="">020 - Dhanmondi</td>
-                <td className="text-right">0.00</td>
-                <td className="text-right">0.00</td>
-                <td className="text-center">04/09/2024 21:4:10</td>
-                <td className="text-center">
-                  <div className="btn-action d-flex justify-center btn_table_row">
-                    <button
-                      id="deletebtn"
-                      title="Delete"
-                      type="button"
-                      className="p-1"
-                    >
-                      <AiFillDelete className={"text-red-700"} />
-                    </button>
-                  </div>
-                </td>
-              </tr>
+            <tbody className="capitalize">
+              {data.map((item, index) => (
+                <tr key={index}>
+                  <td className="">{index + 1}</td>
+                  <td className="">{formatDate(item.date)}</td>
+                  <td className="">
+                    {item.code}-{item.name}
+                  </td>
+                  <td className="text-right">{item.totalReceipt}</td>
+                  <td className="text-right">{item.totalPayment}</td>
+                  <td className="">{item.updatedAt.toLocaleString()}</td>
+                  <td className="text-center">
+                    <div className="btn-action d-flex justify-center btn_table_row">
+                      {index === 0 && <DayDeleteButton id={item.id} />}
+                    </div>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
