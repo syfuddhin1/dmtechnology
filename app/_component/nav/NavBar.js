@@ -1,25 +1,20 @@
 import { auth } from "@/auth";
 import { getDateData } from "@/lib/crud";
 import Image from "next/image";
-import React from "react";
+import { AiOutlineClockCircle, AiOutlineGlobal } from "react-icons/ai";
 import LogoutButton from "../auth/LogoutButton";
-import {
-  AiFillClockCircle,
-  AiOutlineClockCircle,
-  AiOutlineGlobal,
-} from "react-icons/ai";
 
 export default async function NavBar() {
   const session = await auth();
   const workingDate = await getDateData();
 
   return (
-    <nav className="font-bold flex justify-between px-10 p-2 items-center shadow-md capitalize">
+    <nav className="text-[.6rem] flex justify-between px-10 p-2 items-center shadow-md capitalize">
       <div>
-        <Image src="/dmlogo.png" alt="DM Technology" width={200} height={200} />
+        <Image src="/dmlogo.png" alt="DM Technology" width={120} height={120} />
       </div>
       <div className="flex gap-10 items-center">
-        {session?.user && (
+        {session?.user.role == "user" && (
           <div className="flex gap-2 text-md">
             <span className="text-blue-500 font-extrabold">
               <AiOutlineClockCircle className="text-xl" />
@@ -29,11 +24,10 @@ export default async function NavBar() {
         )}
         <div>
           {session?.user ? (
-            <div className="flex gap-2 items-center">
-              <AiOutlineGlobal className="text-xl text-blue-600" /> Branch:
-              <p className="tracking-wider text-blue-950">
-                {session?.user.name}
-              </p>
+            <div className="flex gap-1 items-center">
+              <AiOutlineGlobal className="text-xl text-blue-600" />
+              Branch:
+              <p className="tracking-wider">{session?.user.name}</p>
               <LogoutButton />
             </div>
           ) : (

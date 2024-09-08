@@ -22,20 +22,18 @@ body {
 
 @layer components {
   .btn {
-    @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
+    @apply bg-blue-500 text-white px-2 py-1 rounded;
   }
   .link {
     @apply py-2 px-4 rounded-r-md hover:bg-blue-500 hover:text-white border-b-[1px] border-black;
   }
   .active {
-    @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
+    @apply bg-blue-500 text-white  py-2 px-4 rounded;
   }
 }
 
 form {
-  width: 40rem;
-  padding: 2rem;
-  margin: 0 auto;
+  padding: 0.5rem;
   border: plum 1px solid;
   border-radius: 1rem;
   background: rgba(255, 255, 255, 0.2); /* Transparent white */
@@ -53,23 +51,22 @@ form label {
   justify-content: space-between;
   gap: 0.5rem;
   font-weight: 700;
-  letter-spacing: 0.2cap;
 }
 form input,
 form select {
   border: 1px saddlebrown solid;
-  width: 20rem;
-  height: 2.5rem;
-  padding-left: 1rem;
+  min-width: fit-content;
+  height: 1.6rem;
+  padding: 0.3rem;
+  border-radius: 0.2rem;
 }
 form button {
   background: rebeccapurple;
   color: white;
   padding: 0.5rem 6rem;
   border: 0;
+  height: 1.6rem;
   border-radius: 0.2rem;
-  font-weight: 700;
-  letter-spacing: 0.4cap;
 }
 
 table thead th,
@@ -81,8 +78,6 @@ table tbody td {
 
 .shadowBtn {
   margin: 0 auto;
-  border: plum 1px solid;
-  border-radius: 1rem;
   border-radius: 15px;
   -webkit-backdrop-filter: blur(10px); /* For Safari */
   box-shadow: 4px 14px 10px rgba(0, 0, 0, 0.2);
@@ -133,11 +128,13 @@ table {
 tr th {
   padding-inline: 1.5rem;
   border: 1px solid black;
+  font-size: 0.6rem;
 }
 
 tr td {
   text-align: center;
   padding-inline: 1.5rem;
+  font-size: 0.6rem;
 }
 
 #report_footer_table tr td {

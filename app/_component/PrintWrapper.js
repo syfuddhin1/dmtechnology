@@ -11,7 +11,7 @@ export default function PrintWrapper({ children }) {
   return (
     <div>
       <PrintButton print={print} />
-      <div className="p-4" ref={printRef}>
+      <div className="p-6" ref={printRef}>
         {children}
       </div>
     </div>

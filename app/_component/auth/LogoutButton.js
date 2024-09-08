@@ -10,10 +10,10 @@ const LogoutButton = () => {
 
   return (
     <button
-      className="text-blue-600 shadow-lg hover:bg-blue-200 border border-blue-600 rounded-md  px-2 p-1 flex justify-center items-center gap-2"
+      className="text-blue-600 shadow-lg hover:bg-blue-200 border border-blue-600 rounded-md  px-2 p-1 flex justify-center items-center gap-1"
       onClick={() => onClick()}
     >
-      <FaPowerOff className="text-lg" /> Logout
+      <FaPowerOff className="text-md" /> Logout
     </button>
   );
 };

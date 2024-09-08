@@ -1,6 +1,12 @@
 import { redirect } from "next/navigation";
 import "../globals.css";
 import { auth } from "@/auth";
+
+export const metadata = {
+  title: "DM | Login.",
+  description: "DM Technology Limited",
+};
+
 export default async function RootLayout({ children }) {
   const session = await auth();
   if (session) {
