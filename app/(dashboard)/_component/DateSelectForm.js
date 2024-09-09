@@ -31,10 +31,7 @@ export default function DateSelectForm() {
         onChange={(e) => setDate(e.target.value)}
         className={"text-black px-2"}
       />
-      <button
-        type="submit"
-        className="bg-blue-500 min-w-fit text-white px-4 py-2 rounded"
-      >
+      <button type="submit" className="text-[.7rem] h-7 px-4 py-1">
         Show Report
       </button>
     </form>

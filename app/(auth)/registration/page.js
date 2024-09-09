@@ -4,14 +4,14 @@ import React from "react";
 
 export default function RegistrationPage() {
   return (
-    <form className="flex flex-col gap-4" action={addUser}>
+    <form className="flex flex-col gap-4 p-10 px-20" action={addUser}>
       <div className="w-full items-center flex justify-center">
-        <Image src="/dmlogo.png" alt="DM Technology" width={250} height={200} />
+        <Image src="/dmlogo.png" alt="DM Technology" width={150} height={200} />
       </div>
-      <h1 className="text-center text-2xl font-bold  py-2 font-mono border-b-2">
+      <h1 className="text-center text-xl font-bold  py-2 font-mono border-b-2">
         Registration Form
       </h1>
-      <div className="flex flex-col gap-2 justify-center items-center">
+      <div className="flex flex-col gap-2 justify-center items-center text-xs">
         <label>
           Email
           <input name="email" type="email" />
@@ -34,7 +34,7 @@ export default function RegistrationPage() {
           <input name="confirmPassword" type="password" />
         </label>
 
-        <button>Register</button>
+        <button className="text-xs h-8 px-16 mt-2">Register</button>
       </div>
     </form>
   );

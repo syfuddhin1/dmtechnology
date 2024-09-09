@@ -59,6 +59,9 @@ form select {
   height: 1.6rem;
   padding: 0.3rem;
   border-radius: 0.2rem;
+  text-align: center;
+  padding-inline: 1rem;
+  width: 13rem;
 }
 form button {
   background: rebeccapurple;

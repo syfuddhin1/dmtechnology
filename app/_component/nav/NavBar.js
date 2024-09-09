@@ -25,7 +25,7 @@ export default async function NavBar() {
         <div>
           {session?.user ? (
             <div className="flex gap-1 items-center">
-              <AiOutlineGlobal className="text-xl text-blue-600" />
+              <AiOutlineGlobal className="text-sm text-blue-600" />
               Branch:
               <p className="tracking-wider">{session?.user.name}</p>
               <LogoutButton />
