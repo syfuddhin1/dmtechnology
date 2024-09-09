@@ -9,18 +9,14 @@ export default function CompanyHeader() {
         <PmkLogo />
         <div class="report_header_content">
           <h2
-            className={
-              "text-2xl font-black flex justify-center items-end gap-2"
-            }
+            className={"text-sm font-black flex justify-center items-end gap-2"}
           >
-            <Image src={"/pmklogo.png"} alt="logo" width={70} height={50} />
+            <Image src={"/pmklogo.png"} alt="logo" width={30} height={30} />
             Palli Mongal Karmosuchi (PMK)
           </h2>
-          <h4>
-            <>Zirabo, Ashulia, Dhaka ,Bangladesh</>
-          </h4>
-          <h2 className={"text-xl font-black mt-1 tracking-widest"}>
-            <>DM Technology</>
+          <p className="text-[.7rem]">Zirabo, Ashulia, Dhaka ,Bangladesh</p>
+          <h2 className={"font-black text-sm mt-1 tracking-widest"}>
+            <u>DM Technology</u>
           </h2>
         </div>
       </div>

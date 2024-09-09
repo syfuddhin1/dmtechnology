@@ -94,10 +94,11 @@ table tbody td {
   flex-direction: column;
   gap: 0.5rem;
   font-size: 0.8rem;
+  font-weight: 400;
 }
 .addform label input,
 .addform label select {
-  height: 2.5rem;
+  height: 1.5rem;
   width: 100%;
   color: black;
   padding-left: 0.5rem;
@@ -111,9 +112,11 @@ table tbody td {
 }
 .add {
   background: #2d8857;
-  width: 10rem;
-  padding: 0.5rem;
+  width: 6rem;
+  height: 1.5rem;
+  padding: 0.1rem;
   border-radius: 0.5rem;
+  font-size: small;
 }
 
 .addform input:disabled,

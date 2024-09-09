@@ -8,8 +8,8 @@ export default function PmkLogo() {
         src={"/dmlogo.png"}
         id="logo_image"
         alt="logo"
-        width={200}
-        height={150}
+        width={100}
+        height={100}
       />
     </div>
   );

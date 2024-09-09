@@ -38,7 +38,7 @@ export default function Form({ voucherType, user, date }) {
   };
 
   return (
-    <>
+    <div className="w-full flex justify-center">
       <form
         className={"addform grid grid-cols-3 gap-4 w-[70vw]"}
         onSubmit={handleSubmit}
@@ -138,7 +138,7 @@ export default function Form({ voucherType, user, date }) {
           </button>
         </div>
       </form>
-    </>
+    </div>
   );
 }
 

@@ -1,12 +1,18 @@
+import { auth } from "@/auth";
 import NavBar from "../_component/nav/NavBar";
 import "../globals.css";
 import NavBarLeft from "./_component/NavBarLeft";
+import { redirect } from "next/navigation";
 export const metadata = {
   title: "DM | Admin",
   description: "DM Technology Limited",
 };
 
 export default async function RootLayout({ children }) {
+  const session = await auth();
+  if (session.user.role !== "admin") {
+    redirect("/");
+  }
   return (
     <html lang="en">
       <body>

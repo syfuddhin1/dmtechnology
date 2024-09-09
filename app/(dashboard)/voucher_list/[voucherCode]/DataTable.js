@@ -55,13 +55,8 @@ export default function DataTable({ data, type, voucherCode }) {
                 <table width="100%" align="center">
                   <tr>
                     <td align="center">
-                      <h3
-                        align="center"
-                        className={
-                          "capitalize font-black text-xl underline underline-offset-8"
-                        }
-                      >
-                        {type} Voucher
+                      <h3 align="center" className={"capitalize text-sm"}>
+                        <u>{type} Voucher</u>
                       </h3>
                     </td>
                   </tr>

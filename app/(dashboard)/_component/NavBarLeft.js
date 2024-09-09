@@ -7,7 +7,7 @@ export default function Nav() {
   const pathName = usePathname().slice(1);
 
   return (
-    <div className="flex justify-center xl:flex-col flex-wrap gap-2 mx-4 my-4 w-full px-2">
+    <div className="flex text-sm justify-center xl:flex-col flex-wrap gap-2 mx-4 my-4 w-full px-2">
       <Link
         className={`btn  ${
           pathName == "" ? "bg-green-400" : "bg-gray-400 text-white"

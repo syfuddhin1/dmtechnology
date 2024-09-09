@@ -14,12 +14,8 @@ export default function DataTable({ vouchers = [], branch, date }) {
     <PrintWrapper>
       <div>
         <CompanyHeader />
-        <h4
-          className={
-            "flex justify-center text-lg font-black underline underline-offset-8 mt-2"
-          }
-        >
-          Cash & Bank Book Report
+        <h4 className={"flex justify-center text-sm mt-2"}>
+          <u>Cash & Bank Book Report</u>
         </h4>
         <table className={"w-full capitalize"}>
           <tr className="rth">

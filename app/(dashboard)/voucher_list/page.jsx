@@ -6,7 +6,7 @@ export default async function VoucherList() {
   const VoucherList = (await getVoucherData()).voucherData;
   return (
     <div className={"w-full"}>
-      <h2 className="text-center w-full text-2xl  tracking-widest font-sans bg-green-300/50 p-2">
+      <h2 className="text-center w-full  tracking-widest font-sans bg-green-300/50 p-2">
         Voucher List
       </h2>
       <table className={"w-full"}>
@@ -33,7 +33,7 @@ export default async function VoucherList() {
               <td className="text-center">
                 <button>
                   <Link href={`/voucher_list/${voucher.voucherCode}`}>
-                    <AiFillEye className="text-2xl" />
+                    <AiFillEye className="text-xl" />
                   </Link>
                 </button>
               </td>

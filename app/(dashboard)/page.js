@@ -44,11 +44,9 @@ export default async function DmTech() {
 
   return (
     <div className="w-full">
-      <div className={"justify-between w-full"}>
+      <div className={"justify-between w-full text-xs"}>
         <div
-          className={
-            "flex justify-between items-center bg-green-200/30 p-2 text-lg"
-          }
+          className={"flex justify-between items-center bg-green-200/30 p-2"}
         >
           <h5 className="font-bold">&nbsp;DM Day End Process</h5>
           <DayEndButton data={data} />

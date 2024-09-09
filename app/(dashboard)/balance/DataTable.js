@@ -16,7 +16,7 @@ export default async function DataTable({ date }) {
         <table width="100%" cellpadding="0" cellspacing="0" id="acc_reports">
           <tr class="rth">
             <td colspan="4" nowrap="nowrap" align="center" class="rtd">
-              <h2 className="text-xl font-bold">
+              <h2 className="text-sm font-bold">
                 <u>Balance Sheet Report</u>
               </h2>
               <strong>

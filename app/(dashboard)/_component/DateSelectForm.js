@@ -19,7 +19,10 @@ export default function DateSelectForm() {
   };
 
   return (
-    <form className={"flex items-center gap-4 p-3"} onSubmit={onSubmit}>
+    <form
+      className={"flex items-center gap-4 p-3 text-xs justify-center"}
+      onSubmit={onSubmit}
+    >
       <label className="min-w-fit">Select Date</label>
       <input
         type="date"
