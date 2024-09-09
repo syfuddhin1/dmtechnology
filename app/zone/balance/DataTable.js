@@ -1,6 +1,6 @@
 import PrintWrapper from "@/app/_component/PrintWrapper";
 import { auth } from "@/auth";
-import { getBalanceSheetData } from "@/lib/admin";
+import { getBalanceSheetData } from "@/lib/zone";
 import { Accounts } from "@/services/data";
 import { formatDate } from "@/utils/formatDate";
 import { getDateName } from "@/utils/getDateName";

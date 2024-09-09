@@ -7,7 +7,6 @@ export default async function IncomeStatementPage({ params, searchParams }) {
   return (
     <>
       <DateSelectForm branchList={getBranchList} />
-
       {searchParams?.date && <DataTable {...searchParams} />}
     </>
   );
