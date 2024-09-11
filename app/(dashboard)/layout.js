@@ -38,11 +38,11 @@ export default async function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <NavBar />
-        <div className="grid grid-cols-12">
-          <div className="col-span-12 xl:col-span-2  p-2">
+        <div className="grid grid-cols-10">
+          <div className="col-span-10 xl:col-span-2  p-2">
             <NavBarLeft />
           </div>
-          <div className="col-span-12 xl:col-span-10 p-4">{children}</div>
+          <div className="col-span-10 xl:col-span-8 p-4">{children}</div>
         </div>
       </body>
     </html>
