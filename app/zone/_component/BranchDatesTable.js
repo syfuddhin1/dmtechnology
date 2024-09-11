@@ -1,9 +1,10 @@
+import { calculateDateDifference } from "@/utils/calculatedDays";
 import { formatDate } from "@/utils/formatDate";
 import React from "react";
 
 const BranchDatesTable = ({ branches }) => {
   return (
-    <div className="h-[75vh] overflow-x-hidden">
+    <div className="h-[85vh] overflow-y-scroll capitalize">
       <table className="min-w-full text-left text-sm font-light border border-gray-200 shadow-lg relative">
         <thead className="border-b bg-blue-100 sticky top-0">
           <tr>
@@ -17,10 +18,10 @@ const BranchDatesTable = ({ branches }) => {
               Code
             </th>
             <th scope="col" className="px-2 py-1">
-              Date
+              Current Working Date
             </th>
             <th scope="col" className="px-2 py-1">
-              Created At
+              Lag Day
             </th>
             <th scope="col" className="px-2 py-1">
               Updated At
@@ -36,8 +37,12 @@ const BranchDatesTable = ({ branches }) => {
               <td className="whitespace-nowrap px-2 py-1">
                 {formatDate(branch.date)}
               </td>
-              <td className="whitespace-nowrap px-2 py-1">
-                {formatDate(branch.createdAt)}
+              <td
+                className={`whitespace-nowrap px-2 py-1 ${
+                  calculateDateDifference(branch.date) > 5 && "bg-red-300"
+                }`}
+              >
+                {calculateDateDifference(branch.date)} Days
               </td>
               <td className="whitespace-nowrap px-2 py-1">
                 {formatDate(branch.updatedAt)}

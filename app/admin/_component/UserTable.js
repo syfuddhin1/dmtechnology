@@ -1,12 +1,13 @@
 import { formatDate } from "@/utils/formatDate";
 import Link from "next/link";
 import React from "react";
+import FilterAndSearchForm from "./FilterForm";
 
 const UserTable = ({ users }) => {
   return (
-    <div className="h-[75vh] overflow-x-hidden">
+    <div className="h-[85vh] overflow-x-hidden">
       <div className="p-2  font-semibold text-left text-gray-900 bg-blue-100 flex justify-between">
-        Users List{" "}
+        Users List <FilterAndSearchForm />
         <Link href={"/admin/add"} className="btn text-xs font-thin">
           Create New User
         </Link>

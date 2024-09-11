@@ -21,7 +21,7 @@ export default async function RootLayout({ children }) {
           <div>
             <NavBarLeft />
           </div>
-          <div className="p-4">{children}</div>
+          <div className="p-4 w-full">{children}</div>
         </main>
       </body>
     </html>

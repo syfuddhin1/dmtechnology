@@ -27,7 +27,7 @@ export default function DateSelectForm({ branchList }) {
     >
       <label className="min-w-fit">Branch</label>
       <select
-        className="text-black px-2"
+        className="text-black px-2 text-start"
         onChange={(e) => setBranch(e.target.value)}
         value={branch}
       >

@@ -127,6 +127,9 @@ table tbody td {
   background: rgba(0, 0, 0, 0.199);
 }
 
+input[type="text"] {
+  outline: none;
+}
 table {
   margin-top: 1rem;
   width: 100%;
