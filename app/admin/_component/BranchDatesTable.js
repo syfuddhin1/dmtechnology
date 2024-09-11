@@ -1,10 +1,14 @@
 import { calculateDateDifference } from "@/utils/calculatedDays";
 import { formatDate } from "@/utils/formatDate";
 import React from "react";
+import FilterAndSearchForm from "./FilterForm";
 
 const BranchDatesTable = ({ branches }) => {
   return (
     <div className="h-[85vh] overflow-y-scroll capitalize">
+      <div className="p-2  font-semibold text-left text-gray-900 bg-blue-100 flex justify-between items-center">
+        Branch Progress <FilterAndSearchForm />
+      </div>
       <table className="min-w-full text-left text-sm font-light border border-gray-200 shadow-lg relative">
         <thead className="border-b bg-blue-100 sticky top-0">
           <tr>

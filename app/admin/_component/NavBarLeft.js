@@ -10,7 +10,7 @@ export default function Nav() {
     <div className="flex justify-center xl:flex-col flex-wrap gap-2 m-4 w-full px-2 text-[.7rem]">
       <Link
         className={`btn  ${
-          pathName == "" ? "bg-green-400" : "bg-gray-400 text-white"
+          pathName == "admin" ? "bg-green-400" : "bg-gray-400 text-white"
         }`}
         href={"/admin"}
       >
