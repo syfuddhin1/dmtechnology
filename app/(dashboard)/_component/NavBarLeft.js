@@ -2,6 +2,12 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
+import {
+  AiFillFile,
+  AiFillFileAdd,
+  AiFillFileExcel,
+  AiOutlineDashboard,
+} from "react-icons/ai";
 
 export default function Nav() {
   const pathName = usePathname().slice(1);
@@ -9,33 +15,33 @@ export default function Nav() {
   return (
     <div className="flex text-sm justify-center xl:flex-col flex-wrap gap-2 mx-4 my-4 w-full px-2">
       <Link
-        className={`btn  ${
+        className={`btn flex items-center gap-2  ${
           pathName == "" ? "bg-green-400" : "bg-gray-400 text-white"
         }`}
         href={"/"}
       >
-        DashBoard
+        <AiOutlineDashboard /> Day End
       </Link>
       <Link
-        className={`btn  ${
+        className={`flex items-center gap-2 btn  ${
           pathName.includes("add") ? "bg-green-400" : "bg-gray-400 text-white"
         }`}
         href={"/add/receipt"}
       >
-        Add Voucher
+        <AiFillFileAdd /> Add Voucher
       </Link>
       <Link
-        className={`btn  ${
+        className={`flex items-center gap-2 btn  ${
           pathName.includes("voucher_list")
             ? "bg-green-400"
             : "bg-gray-400 text-white"
         }`}
         href={"/voucher_list"}
       >
-        Voucher List
+        <AiFillFile /> Voucher List
       </Link>
       <Link
-        className={`btn  ${
+        className={`flex items-center gap-2 btn  ${
           pathName.includes("cashbook")
             ? "bg-green-400"
             : "bg-gray-400 text-white"
@@ -45,7 +51,7 @@ export default function Nav() {
         Cash & Bank book
       </Link>
       <Link
-        className={`btn  ${
+        className={`flex items-center gap-2 btn  ${
           pathName.includes("rp") ? "bg-green-400" : "bg-gray-400 text-white"
         }`}
         href={"/rp"}
@@ -53,7 +59,7 @@ export default function Nav() {
         Recept Payment Report
       </Link>
       <Link
-        className={`btn  ${
+        className={`flex items-center gap-2 btn  ${
           pathName.includes("income")
             ? "bg-green-400"
             : "bg-gray-400 text-white"
@@ -63,7 +69,7 @@ export default function Nav() {
         Income Statement
       </Link>
       <Link
-        className={`btn ${
+        className={`flex items-center gap-2 btn ${
           pathName.includes("balance")
             ? "bg-green-400"
             : "bg-gray-400 text-white"

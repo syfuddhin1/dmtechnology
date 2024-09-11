@@ -6,9 +6,12 @@ import FilterAndSearchForm from "./FilterForm";
 const UserTable = ({ users }) => {
   return (
     <div className="h-[85vh] overflow-x-hidden">
-      <div className="p-2  font-semibold text-left text-gray-900 bg-blue-100 flex justify-between">
+      <div className="p-2  font-semibold text-left text-gray-900 bg-blue-100 flex justify-between items-center">
         Users List <FilterAndSearchForm />
-        <Link href={"/admin/add"} className="btn text-xs font-thin">
+        <Link
+          href={"/admin/add"}
+          className="text-xs font-thin h-8 bg-cyan-600 flex justify-center items-center p-2 rounded-md text-cyan-50"
+        >
           Create New User
         </Link>
       </div>
