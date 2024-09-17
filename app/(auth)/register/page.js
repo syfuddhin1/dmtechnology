@@ -43,7 +43,6 @@ const RegisterPage = () => {
       <h1 className="text-center text-xl font-bold  py-2 font-mono border-b-2">
         Registration Form
       </h1>
-      {error && <p className="text-red-500 bg-red-100 p-1 rounded-md text-center">{error}</p>}
       <div className="flex flex-col gap-2 justify-center items-center text-xs">
         <label>
           Email
