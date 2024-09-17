@@ -14,6 +14,9 @@ export const Accounts = [
   {
     name: "Stock of Goods Walton",
     code: 103,
+  },{
+    name: "Stock of goods Vivo",
+    code: 109,
   },
   {
     name: "Service Charge of Singer",
@@ -24,12 +27,20 @@ export const Accounts = [
     code: 105,
   },
   {
+    name: "Service Charge of Vivo",
+    code: 110,
+  },
+  {
     name: "Commission of Singer",
     code: 106,
   },
   {
     name: "Commission of Walton",
     code: 107,
+  },
+  {
+    name: "Commission of Vivo",
+    code: 111,
   },
 ];
 

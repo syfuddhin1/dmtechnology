@@ -43,98 +43,62 @@ export default async function DataTable({ date }) {
           </tr>
         </table>
         <table
-          class="font_size_11 vue-print"
+          className="font_size_11 vue-print"
           width="100%"
           border="1"
-          cellpadding="0"
-          cellspacing="0"
+          cellPadding="0"
+          cellSpacing="0"
         >
           <thead>
             <tr>
-              <th class="acc_th" width="50%">
-                Particulars
+              <th className="acc_th" width="50%">Particulars</th>
+              <th className="acc_th" width="5%">Notes</th>
+              <th className="acc_th" width="15%">
+                Prev Year <br />( FY-{data.date.prevFiscalYear} )
               </th>
-              <th class="acc_th" width="5%">
-                Notes
-              </th>
-              <th class="acc_th" width="15%">
-                Prev Year
-                <br />( FY-{data.date.prevFiscalYear})
-              </th>
-              <th class="acc_th" width="15%">
-                Current Year
-                <br />
-                (FY-{data.date.fiscalYear})
+              <th className="acc_th" width="15%">
+                Current Year <br />( FY-{data.date.fiscalYear} )
               </th>
             </tr>
           </thead>
           <tbody>
+            {/* Assets Section */}
             <tr>
-              <th align="left" class="th_title" colspan="4" bgcolor="#BFC4C9">
+              <th align="left" className="th_title" colSpan="4" style={{ backgroundColor: "#BFC4C9" }}>
                 <strong>Assets</strong>
               </th>
             </tr>
 
-            <tr class="child-row19005_1">
-              <td align="left" className="text-left pl-10">
-                {Accounts[2].name}
-              </td>
-              <td align="center" class="">
-                -{" "}
-              </td>
-              <td align="right" class="">
-                {data.prevYear.balanceData[Accounts[2].code]}
-              </td>
-              <td align="right" class="">
-                {data.thisYear.balanceData[Accounts[2].code]}
-              </td>
-            </tr>
-            <tr class="child-row19005_1">
-              <td align="left" className="text-left pl-10">
-                {Accounts[3].name}
-              </td>
-              <td align="center" class="">
-                -{" "}
-              </td>
-              <td align="right" class="">
-                {data.prevYear.balanceData[Accounts[3].code]}
-              </td>
-              <td align="right" class="">
-                {data.thisYear.balanceData[Accounts[3].code]}
-              </td>
-            </tr>
-            <tr class="child-row19005_1">
-              <td align="left" className="text-left pl-10">
-                {Accounts[1].name}
-              </td>
-              <td align="center" class="">
-                -{" "}
-              </td>
-              <td align="right" class="">
-                {data.prevYear.balanceData[Accounts[1].code]}
-              </td>
-              <td align="right" class="">
-                {data.thisYear.balanceData[Accounts[1].code]}
-              </td>
-            </tr>
+            {Accounts.slice(1, 5).map((account) => (
+              <tr className="child-row19005_1" key={account.code}>
+                <td align="left" className="text-left pl-10">{account.name}</td>
+                <td align="center">-</td>
+                <td align="right">{data.prevYear.balanceData[account.code]}</td>
+                <td align="right">{data.thisYear.balanceData[account.code]}</td>
+              </tr>
+            ))}
+
             <tr className="font-bold">
               <td>Total Assets</td>
               <td>-</td>
               <td>{data.prevYear.total}</td>
               <td>{data.thisYear.total}</td>
             </tr>
+
+            {/* Liabilities Section */}
             <tr>
-              <th align="left" class="th_title" colspan="4" bgcolor="#BFC4C9">
+              <th align="left" className="th_title" colSpan="4" style={{ backgroundColor: "#BFC4C9" }}>
                 <strong>Liabilities</strong>
               </th>
             </tr>
 
             <tr className="font-bold">
-              <td>Surplus</td>
+              <td>Capital Fund</td>
               <td>-</td>
               <td>{data.prevYear.surplus}</td>
               <td>{data.thisYear.surplus}</td>
             </tr>
+
             <tr className="font-bold">
               <td>Total Liabilities</td>
               <td>-</td>
@@ -143,6 +107,7 @@ export default async function DataTable({ date }) {
             </tr>
           </tbody>
         </table>
+
         <br />
         <FootSignatureTable />
       </div>

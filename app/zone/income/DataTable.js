@@ -44,106 +44,66 @@ export default async function DataTable({ date, branch }) {
           </tr>
         </table>
         <table
-          class="font_size_11 vue-print"
+          className="font_size_11 vue-print"
           width="100%"
           border="1"
-          cellpadding="0"
-          cellspacing="0"
+          cellPadding="0"
+          cellSpacing="0"
         >
           <thead>
             <tr>
-              <th class="acc_th" width="50%">
-                Particulars
-              </th>
-              <th class="acc_th" width="5%">
-                Notes
-              </th>
-              <th class="acc_th" width="15%">
-                Current Month
-                <br />( <span>{getDateName(date).monthName}</span>,{" "}
+              <th className="acc_th" width="50%">Particulars</th>
+              <th className="acc_th" width="5%">Notes</th>
+              <th className="acc_th" width="15%">
+                Current Month <br />
+                (<span>{getDateName(date).monthName}</span>,{" "}
                 <span>{new Date(date).getFullYear()}</span>)
               </th>
-              <th class="acc_th" width="15%">
-                Current Year
-                <br />
+              <th className="acc_th" width="15%">
+                Current Year <br />
                 (FY-{data.date.fiscalYear})
               </th>
             </tr>
           </thead>
           <tbody>
+            {/* Income Section */}
             <tr>
-              <th align="left" class="th_title" colspan="4" bgcolor="#BFC4C9">
+              <th align="left" className="th_title" colSpan="4" style={{ backgroundColor: "#BFC4C9" }}>
                 <strong>Income</strong>
               </th>
             </tr>
 
-            <tr class="child-row19005_1">
-              <td align="left" className="text-left pl-10">
-                {Accounts[4].name}
-              </td>
-              <td align="center" class="">
-                -{" "}
-              </td>
-              <td align="right" class="">
-                {data.receipt.month[Accounts[4].code]}
-              </td>
-              <td align="right" class="">
-                {data.receipt.year[Accounts[4].code]}
-              </td>
-            </tr>
-            <tr class="child-row19005_1">
-              <td align="left" className="text-left pl-10">
-                {Accounts[5].name}
-              </td>
-              <td align="center" class="">
-                -{" "}
-              </td>
-              <td align="right" class="">
-                {data.receipt.month[Accounts[5].code]}
-              </td>
-              <td align="right" class="">
-                {data.receipt.year[Accounts[5].code]}
-              </td>
-            </tr>
+            {Accounts.slice(5, 8).map((account) => (
+              <tr className="child-row19005_1" key={account.code}>
+                <td align="left" className="text-left pl-10">{account.name}</td>
+                <td align="center">-</td>
+                <td align="right">{data.receipt.month[account.code]}</td>
+                <td align="right">{data.receipt.year[account.code]}</td>
+              </tr>
+            ))}
+
             <tr className="font-bold">
               <td>Total Income</td>
               <td>-</td>
               <td>{data.receipt.totalCreditForMonth}</td>
               <td>{data.receipt.totalCreditForYear}</td>
             </tr>
+
+            {/* Expense Section */}
             <tr>
-              <th align="left" class="th_title" colspan="4" bgcolor="#BFC4C9">
+              <th align="left" className="th_title" colSpan="4" style={{ backgroundColor: "#BFC4C9" }}>
                 <strong>Expense</strong>
               </th>
             </tr>
-            <tr class="child-row19005_1">
-              <td align="left" className="text-left pl-10">
-                {Accounts[6].name}
-              </td>
-              <td align="center" class="">
-                -{" "}
-              </td>
-              <td align="right" class="">
-                {data.payment.month[Accounts[6].code]}
-              </td>
-              <td align="right" class="">
-                {data.payment.year[Accounts[6].code]}
-              </td>
-            </tr>
-            <tr class="child-row19005_1">
-              <td align="left" className="text-left pl-10">
-                {Accounts[7].name}
-              </td>
-              <td align="center" class="">
-                -{" "}
-              </td>
-              <td align="right" class="">
-                {data.payment.month[Accounts[7].code]}
-              </td>
-              <td align="right" class="">
-                {data.payment.year[Accounts[7].code]}
-              </td>
-            </tr>
+
+            {Accounts.slice(8, 11).map((account) => (
+              <tr className="child-row19005_1" key={account.code}>
+                <td align="left" className="text-left pl-10">{account.name}</td>
+                <td align="center">-</td>
+                <td align="right">{data.payment.month[account.code]}</td>
+                <td align="right">{data.payment.year[account.code]}</td>
+              </tr>
+            ))}
 
             <tr className="font-bold">
               <td>Total Expenses</td>
@@ -151,12 +111,15 @@ export default async function DataTable({ date, branch }) {
               <td>{data.payment.totalDebitForMonth}</td>
               <td>{data.payment.totalDebitForYear}</td>
             </tr>
-            <tr className="font-bold">
+
+            {/* Surplus */}
+            <tr className="bg-gray-200 font-bold">
               <td>Surplus</td>
               <td>-</td>
               <td>{data.surplus.month}</td>
               <td>{data.surplus.year}</td>
             </tr>
+            {/* Total */}
             <tr className="font-bold">
               <td>Total Income</td>
               <td>-</td>

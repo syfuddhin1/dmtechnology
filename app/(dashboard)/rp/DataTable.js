@@ -6,6 +6,7 @@ import { getRPReportData } from "@/lib/crud";
 import { formatDate } from "@/utils/formatDate";
 import { getDateName } from "@/utils/getDateName";
 import { auth } from "@/auth";
+import { renderAccounts } from "../_component/RenderAccountsForRp";
 export default async function DataTable({ date }) {
   const name = (await auth())?.user?.name;
   const data = await getRPReportData(date);
@@ -75,27 +76,7 @@ export default async function DataTable({ date }) {
                 <strong>Receipt</strong>
               </th>
             </tr>
-            {Accounts.map(
-              (account) =>
-                account.code !== 106 &&
-                account.code !== 107 &&
-                account.code !== 108 && (
-                  <tr class="child-row19005_1" key={account.code}>
-                    <td align="left" className="text-left pl-10">
-                      {account.name}
-                    </td>
-                    <td align="center" class="">
-                      -{" "}
-                    </td>
-                    <td align="right" class="">
-                      {data.receipt.month[account.code]}
-                    </td>
-                    <td align="right" class="">
-                      {data.receipt.year[account.code]}
-                    </td>
-                  </tr>
-                )
-            )}
+            {renderAccounts(Accounts, data.receipt, [106, 107, 108, 111])}
             <tr className="font-bold">
               <td>Total Receipt</td>
               <td>-</td>
@@ -107,27 +88,7 @@ export default async function DataTable({ date }) {
                 <strong>Payment</strong>
               </th>
             </tr>
-            {Accounts.map(
-              (account) =>
-                account.code !== 104 &&
-                account.code !== 105 &&
-                account.code !== 108 && (
-                  <tr class="child-row19005_1" key={account.code}>
-                    <td align="left" className="text-left pl-10">
-                      {account.name}
-                    </td>
-                    <td align="center" class="">
-                      -{" "}
-                    </td>
-                    <td align="right" class="">
-                      {data.payment.month[account.code]}
-                    </td>
-                    <td align="right" class="">
-                      {data.payment.year[account.code]}
-                    </td>
-                  </tr>
-                )
-            )}
+            {renderAccounts(Accounts, data.payment, [104, 105, 108, 110])}
             <tr className="font-bold">
               <td>Total Payment</td>
               <td>-</td>

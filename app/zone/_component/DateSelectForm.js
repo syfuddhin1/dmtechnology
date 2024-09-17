@@ -2,6 +2,7 @@
 import { useSearchParams, useRouter } from "next/navigation";
 import React, { useState } from "react";
 
+
 export default function DateSelectForm({ branchList }) {
   const searchParams = useSearchParams();
   const [date, setDate] = useState(
@@ -19,7 +20,7 @@ export default function DateSelectForm({ branchList }) {
       router.push(`?${newParams.toString()}`);
     }
   };
-  console.log(branch);
+
   return (
     <form
       className={"flex items-center justify-center gap-3 text-[.65rem]"}
