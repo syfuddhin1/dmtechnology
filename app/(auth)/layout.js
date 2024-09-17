@@ -9,14 +9,12 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   
-  try {
+
     const session = await auth();
     if (session) {
       redirect("/");
     }
-  } catch (error) {
-    console.log(error);
-  }
+ 
  
   return (
     <html lang="en">
