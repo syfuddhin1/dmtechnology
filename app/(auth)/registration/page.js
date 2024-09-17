@@ -32,9 +32,6 @@ const RegisterPage = () => {
       setError("An error occurred during registration");
     }
   };
-
-
-
   return (
     <form className="flex flex-col gap-4 p-10 px-20" onSubmit={handleSubmit}>
       <div className="w-full items-center flex justify-center">

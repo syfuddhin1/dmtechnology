@@ -2,12 +2,14 @@ import { formatDate } from "@/utils/formatDate";
 import Link from "next/link";
 import React from "react";
 import FilterAndSearchForm from "./FilterForm";
+import UserDeleteButton from "./UserDeleteButton";
+
 
 const UserTable = ({ users, zoneUsers }) => {
   return (
-    <div className="h-[85vh] overflow-x-hidden">
-      <div className="p-2  font-semibold text-left text-gray-900 bg-blue-100 flex justify-between items-center">
-        Users List <FilterAndSearchForm  zoneUsers={zoneUsers}/>
+    <div className="h-[85vh] overflow-x-scroll">
+      <div className="flex gap-3 p-2 w-full justify-center items-center  font-semibold text-left text-gray-900 bg-blue-100 flex justify-between items-center">
+        Users List 
         <Link
           href={"/admin/add"}
           className="text-xs font-thin h-8 bg-cyan-600 flex justify-center items-center p-2 rounded-md text-cyan-50"
@@ -15,6 +17,7 @@ const UserTable = ({ users, zoneUsers }) => {
           Create New User
         </Link>
       </div>
+      <FilterAndSearchForm  zoneUsers={zoneUsers}/>
       <table className="min-w-full text-left text-sm font-light border border-gray-200 shadow-lg relative">
         <thead className="border-b bg-blue-100 sticky top-0">
           <tr>
@@ -37,9 +40,9 @@ const UserTable = ({ users, zoneUsers }) => {
             <th scope="col" className="px-2 py-1">
               Created At
             </th>
-            {/* <th scope="col" className="px-2 py-1">
-              Updated At
-            </th> */}
+            <th scope="col" className="px-2 py-1">
+             Action
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -53,9 +56,9 @@ const UserTable = ({ users, zoneUsers }) => {
               <td className="whitespace-nowrap px-2 py-1">
                 {formatDate(user.createdAt)}
               </td>
-              {/* <td className="whitespace-nowrap px-2 py-1">
-                {new Date(user.updatedAt).toLocaleString()}
-              </td> */}
+              <td className="whitespace-nowrap px-2 py-1">
+                <UserDeleteButton user={user} />
+              </td>
             </tr>
           ))}
         </tbody>

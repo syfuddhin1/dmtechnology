@@ -2,7 +2,7 @@ import { AiFillDelete } from "react-icons/ai";
 import React from "react";
 import { getBranchData } from "@/lib/crud";
 import { formatDate } from "@/utils/formatDate";
-import DayDeleteButton from "./DayDeleteButton";
+import DayDeleteButton from "./UserDeleteButton";
 
 export default async function DayList() {
   const data = (await getBranchData()).data;

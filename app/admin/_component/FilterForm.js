@@ -21,10 +21,10 @@ export default function FilterAndSearchForm({zoneUsers}) {
   };
   return (
     <form
-      className={"flex items-center justify-center gap-3 text-[.65rem]"}
+      className={"xl:flex grid items-center justify-center gap-3 text-[.65rem]"}
       onSubmit={onSubmit}
     >
-      <label className="min-w-fit">zone</label>
+  
       <select
         className="text-black px-2"
         onChange={(e) => {
@@ -47,6 +47,7 @@ export default function FilterAndSearchForm({zoneUsers}) {
         type="text"
         name={"q"}
         value={q}
+        placeholder="Search by name, email, code or role"
         onChange={(e) => setQ(e.target.value)}
         className={"text-black px-2"}
       />

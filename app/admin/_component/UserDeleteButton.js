@@ -1,9 +1,10 @@
 "use client";
-import { deleteDayEndData } from "@/lib/crud";
+
+import { deleteUser } from "@/lib/admin";
 import React, { useState } from "react";
 import { AiFillDelete } from "react-icons/ai";
 
-export default function DayDeleteButton({ id }) {
+export default function UserDeleteButton({ user }) {
   const [isDeleting, setIsDeleting] = useState(false);
 
   const handleDelete = async () => {
@@ -13,7 +14,7 @@ export default function DayDeleteButton({ id }) {
     setIsDeleting(true); // Indicate that the deletion is in progress
 
     try {
-      await deleteDayEndData(id); // Attempt to delete the data
+      await deleteUser(user.email,user.name); // Attempt to delete the data
     } catch (error) {
       console.error("Failed to delete:", error);
       alert("Error deleting data. Please try again.");
