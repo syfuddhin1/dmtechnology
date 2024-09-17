@@ -8,10 +8,16 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  const session = await auth();
-  if (session) {
-    redirect("/");
+  
+  try {
+    const session = await auth();
+    if (session) {
+      redirect("/");
+    }
+  } catch (error) {
+    console.log(error);
   }
+ 
   return (
     <html lang="en">
       <body className="flex flex-col h-screen justify-center items-center">
