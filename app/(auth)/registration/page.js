@@ -1,5 +1,6 @@
 'use client'
-import { addUser } from "@/lib";
+import { addUser, loginUser } from "@/lib";
+import { addDate } from "@/lib/crud";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 import React from "react";
@@ -12,6 +13,15 @@ export default function RegistrationPage() {
     if (result.success) {
       // Handle successful registration
       console.log(result);
+      const newUser = result.user;
+
+     await addDate({
+        name: newUser.name,
+        email: newUser.email,
+        code: newUser.code,
+      });
+  
+      await loginUser(formData);
       redirect("/login");
     } else {
       // Handle registration error
