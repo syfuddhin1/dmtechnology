@@ -1,15 +1,12 @@
-import { getUserData } from "@/lib/admin";
-import { getDateData } from "@/lib/admin";
+import { getDateData, getUserData } from "@/lib/admin";
 import { calculateDateDifference } from "@/utils/calculatedDays";
-import React from "react";
 export default async function AdminPanel({ params, searchParams }) {
-  const users = await getUserData(searchParams);
+  const users = await getUserData({q:'user'});
   const usersDate = await getDateData(searchParams);
   const updatedUser = usersDate
-    .map((user) => {
-      return calculateDateDifference(user.date) < 5 ? 1 : 0;
-    })
-    .reduce((a, b) => a + b, 0);
+    ?.filter((user) => {
+      return calculateDateDifference(user.date) < 5;
+    });
   const superusers = await getUserData({ q: "super" });
   return (
     <div>
@@ -26,7 +23,7 @@ export default async function AdminPanel({ params, searchParams }) {
         <section>
           <h2 className="bg-yellow-300 py-2">Total Updated User</h2>
           <div className="text-center text-5xl bg-green-300 p-2">
-            {updatedUser}
+            {updatedUser.length}
           </div>
         </section>
         <section className="text-center">

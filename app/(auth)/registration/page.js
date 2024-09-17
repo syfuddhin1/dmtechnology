@@ -1,10 +1,25 @@
+'use client'
 import { addUser } from "@/lib";
 import Image from "next/image";
+import { redirect } from "next/navigation";
 import React from "react";
 
 export default function RegistrationPage() {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const result = await addUser(formData);
+    if (result.success) {
+      // Handle successful registration
+      console.log(result);
+      redirect("/login");
+    } else {
+      // Handle registration error
+      console.error(result.message);
+    }
+  };
   return (
-    <form className="flex flex-col gap-4 p-10 px-20" action={addUser}>
+    <form className="flex flex-col gap-4 p-10 px-20" onSubmit={handleSubmit}>
       <div className="w-full items-center flex justify-center">
         <Image src="/dmlogo.png" alt="DM Technology" width={150} height={200} />
       </div>

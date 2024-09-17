@@ -3,7 +3,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 
-export default function FilterAndSearchForm() {
+export default function FilterAndSearchForm({zoneUsers}) {
   const searchParams = useSearchParams();
   const [q, setQ] = useState(searchParams.get("q") || "");
   const router = useRouter();
@@ -24,6 +24,25 @@ export default function FilterAndSearchForm() {
       className={"flex items-center justify-center gap-3 text-[.65rem]"}
       onSubmit={onSubmit}
     >
+      <label className="min-w-fit">zone</label>
+      <select
+        className="text-black px-2"
+        onChange={(e) => {
+          const newParams = new URLSearchParams(searchParams);
+          if (e.target.value) {
+            newParams.set("zone", e.target.value);
+          } else {
+            newParams.delete("zone");
+          }
+          router.push(`?${newParams.toString()}`);
+        }}
+        value={searchParams.get("zone") || ""}
+      >
+        <option value="">All Regions</option>
+     {zoneUsers.map((user)=>(
+      <option key={user.name} value={user.name}>{user.name}</option>
+     ))}
+      </select>
       <input
         type="text"
         name={"q"}

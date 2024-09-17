@@ -1,37 +1,78 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# DM Technology Application Documentation
 
-## Getting Started
+## Overview
 
-First, run the development server:
+This application is a user management system with an admin panel, built using Next.js and MongoDB. It provides functionality for user registration, authentication, and an admin dashboard for monitoring user statistics.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. User Registration
+2. User Authentication
+3. Admin Dashboard
+4. User Search and Filtering
+5. User Activity Tracking
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Frontend: Next.js, React
+- Backend: Next.js API Routes (Server-side rendering)
+- Database: MongoDB
+- Authentication: NextAuth.js
+- Styling: Tailwind CSS
 
-## Learn More
+## Key Components
 
-To learn more about Next.js, take a look at the following resources:
+### 1. User Registration (`app/(auth)/registration/page.js`)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Allows new users to register with email, name, code, and password
+- Performs client-side form validation
+- Sends registration data to the server for processing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### 2. User Authentication
 
-## Deploy on Vercel
+- Implemented using NextAuth.js
+- Supports credential-based authentication (email and password)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 3. Admin Dashboard (`app/admin/page.js`)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# next-auth-mongo-temp
+- Displays total user count, recently updated users, and super admin list
+- Fetches user data from the server
+
+### 4. User Search and Filtering (`app/admin/_component/FilterForm.js`)
+
+- Allows admins to search and filter users by name or zone
+- Updates URL parameters for persistent filtering
+
+### 5. User Data Management (`lib/index.js`)
+
+- Server-side functions for user registration, login, and data retrieval
+- Interacts with MongoDB for data storage and retrieval
+
+## Setup and Configuration
+
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Set up environment variables in `.env`:
+   - `AUTH_SECRET`: Secret key for NextAuth.js
+   - `MONGODB_URI`: MongoDB connection string
+   - `ENVIRONMENT`: Application environment (e.g., 'dm')
+4. Run the development server: `npm run dev`
+
+## API Routes
+
+- `/api/auth/*`: NextAuth.js authentication routes
+- `/api/users`: User management routes (creation, retrieval)
+- `/api/admin`: Admin-specific data retrieval routes
+
+## Security Considerations
+
+- Passwords are hashed using bcrypt before storage
+- Authentication is handled securely through NextAuth.js
+- Environment variables are used for sensitive information
+
+## Future Improvements
+
+- Implement email verification for new user registrations
+- Add more detailed user activity tracking
+- Enhance admin capabilities (e.g., user management, role assignment)
+- Implement more robust error handling and user feedback
