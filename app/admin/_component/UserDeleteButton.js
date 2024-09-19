@@ -14,7 +14,7 @@ export default function UserDeleteButton({ user }) {
     setIsDeleting(true); // Indicate that the deletion is in progress
 
     try {
-      await deleteUser(user.email,user.name); // Attempt to delete the data
+      await deleteUser(user.email, user.name); // Attempt to delete the data
     } catch (error) {
       console.error("Failed to delete:", error);
       alert("Error deleting data. Please try again.");
@@ -28,7 +28,7 @@ export default function UserDeleteButton({ user }) {
       id="btn"
       title="Delete"
       type="button"
-      className="p-1"
+      className="p-1 bg-red-200 text-center rounded-md text-red-500"
       onClick={handleDelete}
       disabled={isDeleting} // Disable the button while deleting
     >
