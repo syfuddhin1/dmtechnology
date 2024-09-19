@@ -60,7 +60,7 @@ export default async function LedgerTable({ searchParams, openingBalance, update
                                     <td>{formatDate(voucher.date)}</td>
                                     <td className="min-w-fit">{voucher.voucherCode}</td>
                                     <td className={""}>
-                                        {voucher.voucherType == "receipt"
+                                        {voucher.voucherType == "payment"
                                             ? getAccountsName(voucher.creditAccounts)
                                             : getAccountsName(voucher.debitAccounts)}
                                     </td>
