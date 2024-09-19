@@ -36,7 +36,7 @@ export default function LedgerForm() {
             name="accountName"
             value={formData.accountName}
             onChange={handleInputChange}
-            className="mt-1 block w-32 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            className="mt-1 block w-full xl:w-32 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
         >
             <option value="">Select an account</option>
             {Accounts.slice(1, 11).map((account) => (
@@ -51,7 +51,7 @@ export default function LedgerForm() {
             name="dateFrom"
             value={formData.dateFrom}
             onChange={handleInputChange}
-            className="mt-1 block w-32 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            className="mt-1 block w-full xl:w-32 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
         />
 
         <label htmlFor="dateTo" className="block text-gray-700">Date To</label>
@@ -61,7 +61,7 @@ export default function LedgerForm() {
             name="dateTo"
             value={formData.dateTo}
             onChange={handleInputChange}
-            className="mt-1 block w-32 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            className="mt-1 block w-full xl:w-32 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
         />
 
         <button
