@@ -17,3 +17,23 @@ export const calculateBalance = (openingBalance, vouchers) => {
 
   return { updatedTransactions, totalReceipt, totalPayment, balance };
 };
+
+export const calculateBalanceReverse = (openingBalance, vouchers) => {
+  let balance = openingBalance;
+  let totalReceipt = 0;
+  let totalPayment = 0;
+
+  const updatedTransactions = vouchers.map((transaction) => {
+    const amount = parseFloat(transaction.amount);
+    if (transaction.voucherType === "payment") {
+      balance += amount;
+      totalReceipt += amount;
+    } else if (transaction.voucherType === "receipt") {
+      balance -= amount;
+      totalPayment += amount;
+    }
+    return { ...transaction, balance: balance };
+  });
+
+  return { updatedTransactions, totalReceipt, totalPayment, balance };
+};

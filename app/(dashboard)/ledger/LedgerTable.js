@@ -21,11 +21,11 @@ export default async function LedgerTable({ searchParams, openingBalance, update
                         <td colspan="5" className="text-right"><strong>Print Date : </strong>{formatDate(new Date())}</td>
                     </tr>
                     <tr class="rth">
-                        <td colspan="4" className="text-left"><strong>Ledger Head : </strong>{getAccountsName(searchParams.accountName)} ({searchParams.accountName})</td>
+                        <td colspan="4" className="text-left capitalize"><strong>Ledger Head : </strong>{getAccountsName(searchParams.accountName)} ({searchParams.accountName})</td>
                         <td colspan="5" className="text-right"><strong>Cummulative DR : </strong>{openingBalance.prevDebitTotal}</td>
                     </tr>
                     <tr class="rth">
-                        <td colspan="4" className="text-left"><strong>Branch : </strong>{name}</td>
+                        <td colspan="4" className="text-left capitalize"><strong>Branch : </strong>{name}</td>
                         <td colspan="5" className="text-right"><strong>Cummulative CR : </strong>{openingBalance.prevCreditTotal}</td>
                     </tr>
                 </table>
@@ -65,10 +65,10 @@ export default async function LedgerTable({ searchParams, openingBalance, update
                                             : getAccountsName(voucher.debitAccounts)}
                                     </td>
                                     <td>
-                                        {voucher.voucherType == "receipt" ? voucher.amount : "-"}
+                                        {voucher.voucherType == "payment" ? voucher.amount : "-"}
                                     </td>
                                     <td>
-                                        {voucher.voucherType == "payment" ? voucher.amount : "-"}
+                                        {voucher.voucherType == "receipt" ? voucher.amount : "-"}
                                     </td>
                                     <td>{voucher.balance}</td>
                                     <td>{voucher.balance > 1 ? 'Dr' : 'Cr'}</td>
@@ -79,9 +79,11 @@ export default async function LedgerTable({ searchParams, openingBalance, update
                             <td colSpan="4" style={{ textAlign: "right" }}>
                                 <strong>Total</strong>
                             </td>
+
                             <td>
                                 <strong>{totalReceipt}</strong>
                             </td>
+
                             <td>
                                 <strong>{totalPayment}</strong>
                             </td>
@@ -97,6 +99,7 @@ export default async function LedgerTable({ searchParams, openingBalance, update
                     </tbody>
                 </table>
                 <table width="100%" border="0" cellpadding="0" cellspacing="0" id="acc_reports">
+
 
                     <tr class="rth">
                         <td colspan="9" className="text-right"><strong>Cummulative DR : </strong>{openingBalance.prevDebitTotal + totalReceipt}</td>

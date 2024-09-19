@@ -1,5 +1,5 @@
 import { getLedgerData } from "@/lib/crud";
-import { calculateBalance } from "@/utils/calculateBalance";
+import { calculateBalanceReverse } from "@/utils/calculateBalance";
 import LedgerForm from "./LedgerForm";
 import LedgerTable from "./LedgerTable";
 import { AiOutlineWarning } from "react-icons/ai";
@@ -8,7 +8,7 @@ export default async function Ledger({ searchParams }) {
     if (searchParams.dateTo && searchParams.dateFrom && !isDateFromGreaterThanDateTo) {
         const { voucherData, openingBalance } = await getLedgerData(searchParams);
         const { updatedTransactions, totalReceipt, totalPayment, balance } =
-            calculateBalance(openingBalance.balance, voucherData);
+            calculateBalanceReverse(openingBalance.balance, voucherData);
 
         return <div>
             <h1 className="text-sm text-center bg-green-200 p-1 font-bold">Ledger</h1>
