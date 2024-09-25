@@ -5,9 +5,10 @@ export function calculateDateDifference(date1, date2) {
 
   // Get the difference in time (in milliseconds)
   const diffTime = Math.abs(d2 - d1);
-
+  const isBig = d2 > d1;
   // Convert the difference in time to days
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-  return diffDays;
+
+  return isBig ? diffDays: -diffDays;
 }

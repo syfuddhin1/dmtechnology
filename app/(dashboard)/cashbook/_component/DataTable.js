@@ -103,6 +103,36 @@ export default function DataTable({ vouchers = [], branch, date }) {
             </tr>
           </tbody>
         </table>
+        <div className="flex justify-center items-center ">
+          <table className="w-[30%]">
+            <tbody>
+              <tr>
+                <td>Total Receipt</td>
+                <td>
+                  <div align="right">{totalReceipt}</div>
+                </td>
+              </tr>
+              <tr>
+                <td>Total Payment </td>
+                <td>
+                <div align="right">{totalPayment}</div>
+                </td>
+              </tr>
+              <tr>
+                <td>Balance This Period </td>
+                <td>
+                  <div align="right">{totalPayment-totalReceipt} </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Closing Bank Balance </td>
+                <td>
+                  <div align="right">{totalPayment-totalReceipt} </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <br />
         <FootSignatureTable />
       </div>
