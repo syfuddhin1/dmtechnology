@@ -6,9 +6,12 @@ export default async function VoucherList() {
   const VoucherList = (await getVoucherData()).voucherData;
   return (
     <div className={"w-full"}>
-      <h2 className="text-center w-full  tracking-widest font-sans bg-green-300/50 p-2">
-        Voucher List
-      </h2>
+      <div className="bg-green-300/50 flex justify-between items-center px-3" >
+        <h2 className="text-center  tracking-widest font-sans  p-2">
+          Voucher List
+        </h2>
+        <Link href={'/add/receipt'} className="bg-blue-400 p-1 rounded-md px-2 text-sm ">Add Voucher</Link>
+      </div>
       <table className={"w-full"}>
         <thead>
           <tr>
