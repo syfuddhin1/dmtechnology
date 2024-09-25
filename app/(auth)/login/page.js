@@ -1,7 +1,7 @@
 import { loginUser } from "@/lib";
 import Image from "next/image";
 
-export default function SignIn() {
+export default function SignIn({searchParams}) {
   return (
     <form action={loginUser} className="flex flex-col gap-5 p-20">
       <div className="w-full items-center flex justify-center">
@@ -13,11 +13,13 @@ export default function SignIn() {
       <div className="flex flex-col text-xs gap-4 justify-center items-center">
         <label>
           Email
-          <input name="email" type="email" />
+          <input name="email" type="email" defaultValue={searchParams?.email}/>
         </label>
         <label>
           Password
-          <input name="password" type="password" />
+          <input name="password" type="password" defaultValue={searchParams?.password
+
+          }/>
         </label>
         <button className="text-xs h-8 px-16 ">Sign In</button>
       </div>
