@@ -11,7 +11,7 @@ export default async function LedgerTable({ searchParams, openingBalance, update
     return (
         <PrintWrapper>
             <div className="p-5">
-                <CompanyHeader />
+                {/* <CompanyHeader /> */}
                 <table width="100%" border="0" cellpadding="0" cellspacing="0" id="acc_reports">
                     <tr class="rth">
                         <td colspan="9"><h2 className="text-sm font-bold"><u>Ledger Report</u></h2></td>

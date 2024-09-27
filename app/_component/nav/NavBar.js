@@ -1,6 +1,5 @@
 import { auth } from "@/auth";
 import { getDateData } from "@/lib/crud";
-import Image from "next/image";
 import { AiOutlineClockCircle, AiOutlineGlobal } from "react-icons/ai";
 import LogoutButton from "../auth/LogoutButton";
 
@@ -11,7 +10,7 @@ export default async function NavBar() {
   return (
     <nav className="text-[.6rem] flex justify-between px-10 p-2 items-center shadow-md capitalize">
       <div>
-        <Image src="/dmlogo.png" alt="DM Technology" width={120} height={120} />
+        <h1 className="font-bold text-lg  font-mono">Accounting System</h1>
       </div>
       <div className="flex gap-10 items-center">
         {session?.user.role == "user" && (

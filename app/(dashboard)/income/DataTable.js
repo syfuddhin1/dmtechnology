@@ -13,7 +13,7 @@ export default async function DataTable({ date }) {
   return (
     <PrintWrapper>
       <div className="">
-        <CompanyHeader />
+        {/* <CompanyHeader /> */}
         <table width="100%" cellpadding="0" cellspacing="0" id="acc_reports">
           <tr class="rth">
             <td colspan="4" nowrap="nowrap" align="center" class="rtd">

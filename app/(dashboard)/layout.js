@@ -17,8 +17,8 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "DM Tech.",
-  description: "DM Technology Limited",
+  title: "Accounting System.",
+  description: "Accounting System",
 };
 
 export default async function RootLayout({ children }) {

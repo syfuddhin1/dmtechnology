@@ -50,7 +50,7 @@ export default function DataTable({ data, type, voucherCode }) {
           >
             <div className="scroll-report voucher_print" id="report-container">
               <div className="report-header fontSize_11" align="center">
-                <CompanyHeader />
+                {/* <CompanyHeader /> */}
 
                 <table width="100%" align="center">
                   <tr>

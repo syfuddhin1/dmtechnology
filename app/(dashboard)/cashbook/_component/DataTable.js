@@ -13,7 +13,7 @@ export default function DataTable({ vouchers = [], branch, date }) {
   return (
     <PrintWrapper>
       <div>
-        <CompanyHeader />
+        {/* <CompanyHeader /> */}
         <h4 className={"flex justify-center text-sm mt-2"}>
           <u>Cash & Bank Book Report</u>
         </h4>
@@ -115,19 +115,19 @@ export default function DataTable({ vouchers = [], branch, date }) {
               <tr>
                 <td>Total Payment </td>
                 <td>
-                <div align="right">{totalPayment}</div>
+                  <div align="right">{totalPayment}</div>
                 </td>
               </tr>
               <tr>
                 <td>Balance This Period </td>
                 <td>
-                  <div align="right">{totalPayment-totalReceipt} </div>
+                  <div align="right">{totalPayment - totalReceipt} </div>
                 </td>
               </tr>
               <tr>
                 <td>Closing Bank Balance </td>
                 <td>
-                  <div align="right">{totalPayment-totalReceipt} </div>
+                  <div align="right">{totalPayment - totalReceipt} </div>
                 </td>
               </tr>
             </tbody>
